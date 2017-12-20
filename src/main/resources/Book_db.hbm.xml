@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.Book_db" table="book" schema="library_db">
+        <id name="idBook" column="ID_book"/>
+        <property name="idSection" column="ID_section"/>
+        <property name="name" column="name"/>
+        <property name="size" column="size"/>
+        <property name="yearofwriting" column="yearofwriting"/>
+    </class>
+</hibernate-mapping>

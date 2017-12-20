@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.Readersbook_db" table="readersbook" schema="library_db">
+        <composite-id mapped="true" class="Entity.Readersbook_dbPK">
+            <key-property name="idBook" column="ID_book"/>
+            <key-property name="idReader" column="ID_reader"/>
+        </composite-id>
+    </class>
+</hibernate-mapping>

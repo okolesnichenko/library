@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:body>
+        <h:form id = "readerform">
+            <h:dataTable id = "readerdt" value="#{readerBean.readers}" var = "reader">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{reader.idReader}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    #{reader.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Middlename</f:facet>
+                    #{reader.middlename}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Surname</f:facet>
+                    #{reader.surname}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Year of birth</f:facet>
+                    #{reader.birthday}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{readerBean.deleteReader(reader)}">
+                        <f:ajax execute="readerform" render="readerform:readerdt"  />
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid id="panel1" columns="2">
+                <h:outputLabel value = "Name"/>
+                <h:inputText value = "#{readerBean.name}" />
+
+                <h:outputLabel value = "Middlename"/>
+                <h:inputText value = "#{readerBean.middlename}" />
+
+                <h:outputLabel value = "Surname"/>
+                <h:inputText value = "#{readerBean.surname}" />
+
+                <h:outputLabel value = "Year of birth"/>
+                <h:inputText value = "#{readerBean.birthday}" />
+
+                <h:outputLabel value="ID for update"/>
+                <h:selectOneMenu value="#{readerBean.idForUpdate}">
+                    <f:selectItems value="#{readerBean.readers}" var = "r1" itemLabel="#{r1.idReader}" itemValue="#{r1.idReader}"  />
+                </h:selectOneMenu>
+                <h:commandButton value="Add" action="#{readerBean.addReader}">
+                    <f:ajax execute="readerform" render="readerform:readertb"  />
+                </h:commandButton>
+                <h:commandButton value="Update" action="#{readerBean.updateReader}">
+                    <f:ajax execute="readerform" render="readerform:readerdt"  />
+                </h:commandButton>
+
+
+            </h:panelGrid><br />
+            <h:commandButton value="Back" action="Back">
+            </h:commandButton>
+        </h:form>
+    </h:body>
+</f:view>
+</html>

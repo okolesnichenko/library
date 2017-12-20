@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:body>
+        <h:form id = "authoraudiobookform">
+            <h:dataTable id = "authoraudiobookdt" value="#{authoraudiobookBean.authoraudiobooks}" var = "abc">
+                <h:column>
+                    <f:facet name="header">Audiobook</f:facet>
+                    #{abc.idAudiobook}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Author</f:facet>
+                    #{abc.idAuthor}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{authoraudiobookBean.deleteAuthoraudiobook(abc)}">
+                        <f:ajax execute="authoraudiobookform" render="authoraudiobookform:authoraudiobookdt"  />
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid id="panel1" columns="2">
+                <h:outputLabel value = "ID author"/>
+                <h:selectOneMenu value="#{authoraudiobookBean.idAuthor}">
+                    <f:selectItems value="#{authorBean.authors}" var = "a1" itemLabel="#{a1.idAuthor}" itemValue="#{a1.idAuthor}"  />
+                </h:selectOneMenu>
+                <h:outputLabel value = "ID audiobook"/>
+                <h:selectOneMenu value="#{authoraudiobookBean.idAudiobook}">
+                    <f:selectItems value="#{audiobookBean.audiobooks}" var = "z1" itemLabel="#{z1.idAudiobook}" itemValue="#{z1.idAudiobook}"  />
+                </h:selectOneMenu>
+                <h:outputLabel value="ID author for update"/>
+                <h:selectOneMenu value="#{authoraudiobookBean.idForUpdate}">
+                    <f:selectItems value="#{authoraudiobookBean.authoraudiobooks}" var = "q" itemLabel="#{q.idAuthor}" itemValue="#{q.idAuthor}"  />
+                </h:selectOneMenu>
+                <h:commandButton value="Add" action="#{authoraudiobookBean.addAuthoraudiobook}">
+                    <f:ajax execute="authoraudiobookform" render="authoraudiobookform:authoraudiobooktb"  />
+                </h:commandButton>
+                <h:commandButton value="Update" action="#{authoraudiobookBean.updateAuthoraudiobook}">
+                    <f:ajax execute="authoraudiobookform" render="authoraudiobookform:authoraudiobookdt"  />
+                </h:commandButton>
+            </h:panelGrid><br />
+            <h:commandButton value="Back" action="Back">
+            </h:commandButton>
+        </h:form>
+    </h:body>
+</f:view>
+</html>

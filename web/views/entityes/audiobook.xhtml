@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:body>
+        <h:form id = "audiobookform">
+            <h:dataTable id = "audiobookdt" value="#{audiobookBean.audiobooks}" var = "audiobook">
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    #{audiobook.idAudiobook}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Section</f:facet>
+                    #{audiobook.idSection}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    #{audiobook.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Duration</f:facet>
+                    #{audiobook.duration}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{audiobookBean.deleteAudiobook(audiobook)}">
+                        <f:ajax execute="audiobookform" render="audiobookform:audiobookdt"  />
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid id="panel1" columns="2">
+                <h:outputLabel value = "ID Section"/>
+                <h:selectOneMenu value="#{audiobookBean.idSection}">
+                    <f:selectItems value="#{sectionBean.sections}" var = "s1" itemLabel="#{s1.idSection}" itemValue="#{s1.idSection}"  />
+                </h:selectOneMenu>
+
+                <h:outputLabel value = "Name"/>
+                <h:inputText value = "#{audiobookBean.name}" />
+
+                <h:outputLabel value = "Duration"/>
+                <h:inputText value = "#{audiobookBean.duration}" />
+
+                <h:outputLabel value="ID for update"/>
+                <h:selectOneMenu value="#{audiobookBean.idForUpdate}">
+                    <f:selectItems value="#{audiobookBean.audiobooks}" var = "ab1" itemLabel="#{ab1.idAudiobook}" itemValue="#{ab1.idAudiobook}"  />
+                </h:selectOneMenu>
+                <h:commandButton value="Add" action="#{audiobookBean.addAudiobook}">
+                    <f:ajax execute="audiobookform" render="audiobookform:audiobooktb"  />
+                </h:commandButton>
+                <h:commandButton value="Update" action="#{bookBean.updateBook}">
+                    <f:ajax execute="audiobookform" render="audiobookform:audiobookdt"  />
+                </h:commandButton>
+
+
+            </h:panelGrid><br />
+            <h:commandButton value="Back" action="Back">
+            </h:commandButton>
+        </h:form>
+    </h:body>
+</f:view>
+</html>

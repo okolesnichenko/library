@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/library_db</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">1234</property>
+        <mapping class="Entity.Audiobook_db"/>
+        <mapping class="Entity.Author_db"/>
+        <mapping class="Entity.Authoraudiobook_db"/>
+        <mapping class="Entity.Authorsbook_db"/>
+        <mapping class="Entity.Book_db"/>
+        <mapping class="Entity.Reader_db"/>
+        <mapping class="Entity.Readersaudiobook_db"/>
+        <mapping class="Entity.Readersbook_db"/>
+        <mapping class="Entity.Section_db"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

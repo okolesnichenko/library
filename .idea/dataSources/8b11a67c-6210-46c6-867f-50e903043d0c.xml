@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="library_db@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="library_db">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="infsys"/>
+    <schema id="5" parent="1" name="library"/>
+    <schema id="6" parent="1" name="mydb"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="studio"/>
+    <schema id="10" parent="1" name="sys"/>
+    <table id="11" parent="2" name="audiobook"/>
+    <table id="12" parent="2" name="author"/>
+    <table id="13" parent="2" name="authoraudiobook"/>
+    <table id="14" parent="2" name="authorsbook"/>
+    <table id="15" parent="2" name="book"/>
+    <table id="16" parent="2" name="reader"/>
+    <table id="17" parent="2" name="readersaudiobook"/>
+    <table id="18" parent="2" name="readersbook"/>
+    <table id="19" parent="2" name="section"/>
+    <column id="20" parent="11" name="ID_audiobook">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="11" name="ID_section">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="11" name="name">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="11" name="duration">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="24" parent="11" name="ID_sectionA_idx">
+      <ColNames>ID_section</ColNames>
+    </index>
+    <key id="25" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_audiobook</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="11" name="FKfjqn3vb3c89n18o53fpvg02hg">
+      <ColNames>ID_section</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>section</RefTableName>
+      <RefColNames>ID_section</RefColNames>
+    </foreign-key>
+    <foreign-key id="27" parent="11" name="ID_sectionA">
+      <ColNames>ID_section</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>section</RefTableName>
+      <RefColNames>ID_section</RefColNames>
+    </foreign-key>
+    <column id="28" parent="12" name="ID_author">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="12" name="name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="12" name="surname">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="12" name="middlename">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="12" name="yearofbirth">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="33" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_author</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="34" parent="13" name="ID_audiobook">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="13" name="ID_author">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="36" parent="13" name="ID_authorA_idx">
+      <ColNames>ID_author</ColNames>
+    </index>
+    <key id="37" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_audiobook
+ID_author</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="13" name="FKpt0hlfeq0slenrdpupmeyfv8f">
+      <ColNames>ID_audiobook</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>audiobook</RefTableName>
+      <RefColNames>ID_audiobook</RefColNames>
+    </foreign-key>
+    <foreign-key id="39" parent="13" name="ID_audiobook">
+      <ColNames>ID_audiobook</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>audiobook</RefTableName>
+      <RefColNames>ID_audiobook</RefColNames>
+    </foreign-key>
+    <foreign-key id="40" parent="13" name="FKo586tyka98ci5i8wprrlyvtlo">
+      <ColNames>ID_author</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>author</RefTableName>
+      <RefColNames>ID_author</RefColNames>
+    </foreign-key>
+    <foreign-key id="41" parent="13" name="ID_authorA">
+      <ColNames>ID_author</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>author</RefTableName>
+      <RefColNames>ID_author</RefColNames>
+    </foreign-key>
+    <column id="42" parent="14" name="ID_author">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="14" name="ID_book">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="44" parent="14" name="ID_book_idx">
+      <ColNames>ID_book</ColNames>
+    </index>
+    <key id="45" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_author
+ID_book</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="46" parent="14" name="FK64v23vsnn4bgrka69rhc8rxcf">
+      <ColNames>ID_author</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>author</RefTableName>
+      <RefColNames>ID_author</RefColNames>
+    </foreign-key>
+    <foreign-key id="47" parent="14" name="ID_authorB">
+      <ColNames>ID_author</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>author</RefTableName>
+      <RefColNames>ID_author</RefColNames>
+    </foreign-key>
+    <foreign-key id="48" parent="14" name="FK6igkbsvimil5ux0f6enqkdt1e">
+      <ColNames>ID_book</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ID_book</RefColNames>
+    </foreign-key>
+    <foreign-key id="49" parent="14" name="ID_book">
+      <ColNames>ID_book</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ID_book</RefColNames>
+    </foreign-key>
+    <column id="50" parent="15" name="ID_book">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="15" name="ID_section">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="15" name="name">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="15" name="size">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="15" name="yearofwriting">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="55" parent="15" name="ID_sectionB_idx">
+      <ColNames>ID_section</ColNames>
+    </index>
+    <key id="56" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_book</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="57" parent="15" name="FKgnr305li3uipwsc4in8ens89k">
+      <ColNames>ID_section</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>section</RefTableName>
+      <RefColNames>ID_section</RefColNames>
+    </foreign-key>
+    <foreign-key id="58" parent="15" name="ID_sectionB">
+      <ColNames>ID_section</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>section</RefTableName>
+      <RefColNames>ID_section</RefColNames>
+    </foreign-key>
+    <column id="59" parent="16" name="ID_reader">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="60" parent="16" name="name">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="16" name="surname">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="16" name="middlename">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="16" name="birthday">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="64" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_reader</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="65" parent="17" name="ID_audiobook">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="66" parent="17" name="ID_reader">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="67" parent="17" name="ID_readerA_idx">
+      <ColNames>ID_reader</ColNames>
+    </index>
+    <key id="68" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_audiobook
+ID_reader</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="69" parent="17" name="FK3brtbwd7trfmaqwoi7icl20xb">
+      <ColNames>ID_audiobook</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>audiobook</RefTableName>
+      <RefColNames>ID_audiobook</RefColNames>
+    </foreign-key>
+    <foreign-key id="70" parent="17" name="ID_audiobookforread">
+      <ColNames>ID_audiobook</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>audiobook</RefTableName>
+      <RefColNames>ID_audiobook</RefColNames>
+    </foreign-key>
+    <foreign-key id="71" parent="17" name="FKso2am5xlcgmd5foinjlp6lgmu">
+      <ColNames>ID_reader</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>reader</RefTableName>
+      <RefColNames>ID_reader</RefColNames>
+    </foreign-key>
+    <foreign-key id="72" parent="17" name="ID_readerA">
+      <ColNames>ID_reader</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>reader</RefTableName>
+      <RefColNames>ID_reader</RefColNames>
+    </foreign-key>
+    <column id="73" parent="18" name="ID_book">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="18" name="ID_reader">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="75" parent="18" name="ID_readerB_idx">
+      <ColNames>ID_reader</ColNames>
+    </index>
+    <key id="76" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_book
+ID_reader</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="77" parent="18" name="FKrsvagf0uejrbphn0u0mxrpbfx">
+      <ColNames>ID_book</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ID_book</RefColNames>
+    </foreign-key>
+    <foreign-key id="78" parent="18" name="ID_bookforread">
+      <ColNames>ID_book</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>book</RefTableName>
+      <RefColNames>ID_book</RefColNames>
+    </foreign-key>
+    <foreign-key id="79" parent="18" name="FK3dasl4wnv2wnky017898gvxho">
+      <ColNames>ID_reader</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>reader</RefTableName>
+      <RefColNames>ID_reader</RefColNames>
+    </foreign-key>
+    <foreign-key id="80" parent="18" name="ID_readerB">
+      <ColNames>ID_reader</ColNames>
+      <RefSchemaName>library_db</RefSchemaName>
+      <RefTableName>reader</RefTableName>
+      <RefColNames>ID_reader</RefColNames>
+    </foreign-key>
+    <column id="81" parent="19" name="ID_section">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="82" parent="19" name="type">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="83" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID_section</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

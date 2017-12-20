@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+
+        <navigation-case>
+            <from-outcome>nextPageAuthtor</from-outcome>
+            <to-view-id>/views/entityes/author.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nextPageSection</from-outcome>
+            <to-view-id>/views/entityes/section.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nextPageReader</from-outcome>
+            <to-view-id>/views/entityes/reader.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nextPageBook</from-outcome>
+            <to-view-id>/views/entityes/book.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nextPageAudiobook</from-outcome>
+            <to-view-id>/views/entityes/audiobook.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nextPageAuthorsbook</from-outcome>
+            <to-view-id>/views/entityes/authorbook.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nextPA</from-outcome>
+            <to-view-id>/views/entityes/authoraudiobook.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nextPageReadersbook</from-outcome>
+            <to-view-id>/views/entityes/readersbook.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nextPageReadersaudiobook</from-outcome>
+            <to-view-id>/views/entityes/readersaudiobook.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>Back</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+
+
+    </navigation-rule>
+</faces-config>

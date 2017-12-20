@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:body>
+        <h:form id = "readersbookform">
+            <h:dataTable id = "readersbookdt" value="#{readersbookBean.readersbooks}" var = "rb">
+                <h:column>
+                    <f:facet name="header">Book</f:facet>
+                    #{rb.idBook}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Reader</f:facet>
+                    #{rb.idReader}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{readersbookBean.deleteReadersbook(rb)}">
+                        <f:ajax execute="readersbookform" render="readersbookform:readersbookdt"  />
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid id="panel1" columns="2">
+                <h:outputLabel value = "ID book"/>
+                <h:selectOneMenu value="#{readersbookBean.idBook}">
+                    <f:selectItems value="#{bookBean.books}" var = "b1" itemLabel="#{b1.idBook}" itemValue="#{b1.idBook}"  />
+                </h:selectOneMenu>
+                <h:outputLabel value = "ID reader"/>
+                <h:selectOneMenu value="#{readersbookBean.idReader}">
+                    <f:selectItems value="#{readerBean.readers}" var = "r1" itemLabel="#{r1.idReader}" itemValue="#{r1.idReader}"  />
+                </h:selectOneMenu>
+                <h:outputLabel value="ID book for update"/>
+                <h:selectOneMenu value="#{readersbookBean.idForUpdate}">
+                    <f:selectItems value="#{readersbookBean.readersbooks}" var = "rb1" itemLabel="#{rb1.idReader}" itemValue="#{rb1.idReader}"  />
+                </h:selectOneMenu>
+                <h:commandButton value="Add" action="#{readersbookBean.addReadersbook}">
+                    <f:ajax execute="readersbookform" render="readersbookform:readersbooktb"  />
+                </h:commandButton>
+                <h:commandButton value="Update" action="#{readersbookBean.updateReadersbook}">
+                    <f:ajax execute="readersbookform" render="readersbookform:readersbookdt"  />
+                </h:commandButton>
+            </h:panelGrid><br />
+            <h:commandButton value="Back" action="Back">
+            </h:commandButton>
+        </h:form>
+    </h:body>
+</f:view>
+</html>

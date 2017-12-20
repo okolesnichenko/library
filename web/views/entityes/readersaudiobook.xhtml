@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:body>
+        <h:form id = "readersbookform">
+            <h:dataTable id = "readersaudiobookdt" value="#{readersaudiobookBean.readersaudiobooks}" var = "ra">
+                <h:column>
+                    <f:facet name="header">Audiobook</f:facet>
+                    #{ra.idAudiobook}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Reader</f:facet>
+                    #{ra.idReader}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Action</f:facet>
+                    <h:commandButton value="Delete" action="#{readersaudiobookBean.deleteReadersaudiobook(ra)}">
+                        <f:ajax execute="readersaudiobookform" render="readersaudiobookform:readersaudiobookdt"  />
+                    </h:commandButton>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid id="panel1" columns="2">
+                <h:outputLabel value = "ID audiobook"/>
+                <h:selectOneMenu value="#{readersaudiobookBean.idAudiobook}">
+                    <f:selectItems value="#{audiobookBean.audiobooks}" var = "ab1" itemLabel="#{ab1.idAudiobook}" itemValue="#{ab1.idAudiobook}"  />
+                </h:selectOneMenu>
+                <h:outputLabel value = "ID reader"/>
+                <h:selectOneMenu value="#{readersaudiobookBean.idReader}">
+                    <f:selectItems value="#{readerBean.readers}" var = "r1" itemLabel="#{r1.idReader}" itemValue="#{r1.idReader}"  />
+                </h:selectOneMenu>
+                <h:outputLabel value="ID book for update"/>
+                <h:selectOneMenu value="#{readersaudiobookBean.idForUpdate}">
+                    <f:selectItems value="#{readersaudiobookBean.readersaudiobooks}" var = "rb1" itemLabel="#{rb1.idReader}" itemValue="#{rb1.idReader}"  />
+                </h:selectOneMenu>
+                <h:commandButton value="Add" action="#{readersaudiobookBean.addReadersaudiobook}">
+                    <f:ajax execute="readersaudiobookform" render="readersaudiobookform:readersaudiobooktb"  />
+                </h:commandButton>
+                <h:commandButton value="Update" action="#{readersaudiobookBean.addReadersaudiobook}">
+                    <f:ajax execute="readersaudiobookform" render="readersaudiobookform:readersaudiobookdt"  />
+                </h:commandButton>
+            </h:panelGrid><br />
+            <h:commandButton value="Back" action="Back">
+            </h:commandButton>
+        </h:form>
+    </h:body>
+</f:view>
+</html>
